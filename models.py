@@ -36,20 +36,12 @@ class patient(user):
                               on_delete=models.CASCADE)
 
 
-class secretary(user):
-    Hired_At = models.DateField()
-    Worked_hours = models.IntegerField(help_text='Your daily working hours')
-    doctor = models.OneToOneField(dietician, verbose_name='Dietician info', on_delete=models.PROTECT)
-
 
 class appointment(models.Model):
     Created_At = models.DateTimeField(auto_now=True)
     diet = models.ForeignKey(dietician, related_name='dietician', on_delete=models.CASCADE,
-                             verbose_name='Dietician informations')
-    secr = models.ForeignKey(secretary, related_name='secretary', on_delete=models.CASCADE,
-                             verbose_name='Secretary informations')
-    pat = models.ForeignKey(patient, related_name='patient', on_delete=models.CASCADE,
-                            verbose_name='Patient informations')
+                             verbose_name='Dietician informations' nombre telephone="474777")
+
 
 
 class invoice(models.Model):
